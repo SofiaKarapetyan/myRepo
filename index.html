@@ -13,3 +13,197 @@
 </body>
 
 </html>
+
+/ Create an empty Array and use methods push pop shift, unShift
+
+// follow the requirements and write step by step:
+
+// add in the array 2 items. It should be number.
+// add 3 items to the beginning. It should be string.
+// remove one element from the end.
+// remove one element from the beginning.
+// write a function to return the number of string and number elements in the array
+
+
+const arr=[]
+
+//1.
+arr[0]=7
+arr[1]=4
+
+//2.
+arr.unshift('Sofia')
+
+//3.
+let popedElement=arr.pop()
+
+//4.
+const shiftedElement=arr.shift()
+
+console.log(arr); //[7]
+
+
+
+function getStrNumArr(){
+    return [shiftedElement,popedElement]
+
+
+}
+
+console.log(getStrNumArr()); //[ 'Sofia', 4 ]
+
+
+
+// // Implement an arrMethod() function that takes two parameters - an array and an object. Object should have 2 properties: action ( one of pop/push, shift/unshift ) and element: the element which would be added to the given array
+// // if push/unshift actions are called. If pop/shift actions are called, element property can be null. for example: arrMethod(arr, {action: push, element: 'Some element'}) should add 'Some element' to the end of arr.
+
+
+// const arr = [1,2,3]
+
+// const obj = {
+//     action: 'unshift',
+//     element: 7
+// }
+
+
+// function arrMethod(obj, arr) {
+  
+//     let count=0
+//     if (obj.action === 'push') {
+//         arr[arr.length] = obj.element
+
+//     } else if (obj.action === 'unshift') {
+//         arr[count] === obj.element
+//         count++
+//     } else{
+//         obj.element === null
+//     }
+//     return arr
+// }
+
+// console.log(arrMethod(obj, arr));
+
+let arr=[1, 2, 3, 80, 5, 100]
+
+function getValue(arr,world){
+    let num;
+for(let i=0;i<arr.length;i++){
+    if(typeof arr[i]==='number'){
+        if(world==='first'){
+          num= arr[0]
+        } else{
+           num= arr[arr.length-1]
+        }
+    }
+}
+return num
+
+}
+
+console.log(getValue(arr,'first'));
+                               
+                               
+                               
+                               
+                               // Create a getValue function that takes 2 arguments: an array containing only numbers and an argument "first" or "last", and returns the result depending on the second argument.
+
+// Example
+// If you wrote in second argument “first” should return ➞ 1
+
+// Like this getValue([1, 2, 3, 80, 5, 100], “first”) ➞ 1
+
+// If you wrote in second argument “last” should return ➞ 100
+
+// Like this getValue([1, 2, 3, 80, 5, 100], “last”) ➞ 100
+
+
+
+const arr = [1, 2, 3, 80, 5, 100]
+
+function getValue(arr, world) {
+    let num;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (world.includes('last') || world.includes('first')) {
+            if (typeof arr[i] === 'number') {
+                if (world === 'first') {
+                    num = arr[0]
+                }
+                else {
+                    num = arr[arr.length - 1]
+                }
+            }
+        }
+        return `World should be last or first`
+    }
+
+    return num
+
+}
+
+console.log(getValue(arr, 'las')); // => 1
+
+
+// Create a function primeNumber() that takes one argument as a number. The function should return a new array, and the array must contain all prime numbers up to the number you specified in the argument
+
+
+
+function primeNumber(num) {
+    const arr = []
+
+    if (num === 1) {
+        return `1 is not a prime number`
+    } else {
+        for (let i = 2; i <= num; i++) {
+            let isSimple = true;
+
+            for (let j = 2; j < i; j++) {
+                if (i % j === 0) {
+                    isSimple = false;
+                    break;
+                }
+            }
+
+            if (isSimple) {
+                arr.push(i)
+            }
+        }
+
+    }
+    return arr
+}
+
+console.log(primeNumber(19)); //  [2, 3, 5, 7, 11, 13, 17] 
+
+
+//Create a function myPush() that takes 2 arguments, the first argument should be an array, the second one an item that can be string or number.
+
+
+function myPush(arr, item) {
+    arr[arr.length] = item
+   
+    return arr.length
+}
+
+console.log(myPush([2,8], 6)); // [6]
+
+
+// Create a function myPop() that takes an array as an argument.
+
+
+function myPop(arr) {
+    let lastItem;
+    if (arr.length === 0) {
+        return undefined
+    } else {
+        lastItem = arr[arr.length - 1]
+        arr.splice([arr.length - 1])
+
+    }
+    return lastItem
+
+}
+
+console.log(myPop([1, 6, 8])); // 8
+
+
